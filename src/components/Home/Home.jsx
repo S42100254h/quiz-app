@@ -6,4 +6,4 @@ const Home = () => {
   );
 };
 
-esport default Home;
+export default Home;
