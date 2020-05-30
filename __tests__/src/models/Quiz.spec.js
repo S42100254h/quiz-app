@@ -53,8 +53,6 @@ describe('Shuffleメソッド', () => {
   });
 });
 
-<<<<<<< Updated upstream
-=======
 describe('judgeCorrectAnswerメソッド', () => {
   it('引数の値が正解ならtrue, 不正解ならfalseが返る', () => {
     const quizData = createMockQuiz();
@@ -70,18 +68,3 @@ describe('judgeCorrectAnswerメソッド', () => {
   });
 });
 
-describe('クラスメソッド', () => {
-  describe('fetchAndCreateQuizzesメソッド', () => {
-    it('10件のQuizインスタンスが返る', async () => {
-      const quizzes = await Quiz.fetchAndCreateQuizzes();
-
-      expect( Array.isArray(quizzes) ).toStrictEqual(true);
-      expect(quizzes.length).toStrictEqual(10);
-      quizzes.forEach(quiz => {
-        expect( quiz instanceof Quiz ).toStrictEqual(true);
-      });
-    });
-  });
-});
-
->>>>>>> Stashed changes
