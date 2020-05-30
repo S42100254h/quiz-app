@@ -26,7 +26,7 @@ describe('インスタンスメソッド', () => {
 
       expect( quiz._question ).toStrictEqual(quizData.question);
       expect( quiz._correctAnswer ).toStrictEqual(quizData.correctAnswer);
-      expect( quiz._incorrectAnswers ).toStrictEqual(quizData._incorrectAnswers)
+      expect( quiz._incorrectAnswers ).toStrictEqual(quizData.incorrectAnswers)
     });
   });
 
@@ -53,3 +53,35 @@ describe('Shuffleメソッド', () => {
   });
 });
 
+<<<<<<< Updated upstream
+=======
+describe('judgeCorrectAnswerメソッド', () => {
+  it('引数の値が正解ならtrue, 不正解ならfalseが返る', () => {
+    const quizData = createMockQuiz();
+    const quiz = new Quiz(quizData);
+
+    expect(quiz.judgeCorrectAnswer(quizData.correctAnswer))
+      .toStrictEqual(true);
+
+    quizData.incorrectAnswers.forEach(incorrectAnswer => {
+      expect(quiz.judgeCorrectAnswer(incorrectAnswer))
+        .toStrictEqual(false);
+    });
+  });
+});
+
+describe('クラスメソッド', () => {
+  describe('fetchAndCreateQuizzesメソッド', () => {
+    it('10件のQuizインスタンスが返る', async () => {
+      const quizzes = await Quiz.fetchAndCreateQuizzes();
+
+      expect( Array.isArray(quizzes) ).toStrictEqual(true);
+      expect(quizzes.length).toStrictEqual(10);
+      quizzes.forEach(quiz => {
+        expect( quiz instanceof Quiz ).toStrictEqual(true);
+      });
+    });
+  });
+});
+
+>>>>>>> Stashed changes

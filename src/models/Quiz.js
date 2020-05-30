@@ -1,10 +1,12 @@
 import _ from 'lodash';
+import he from 'he';
+import QuizFetcher from '../data_fetchers/QuizFetcher';
 
 class Quiz {
   constructor({question, correctAnswer, incorrectAnswers}) {
     this._question = question;
     this._correctAnswer = correctAnswer;
-    this._incorrectAnswer = [...incorrectAnswers];
+    this._incorrectAnswers = [...incorrectAnswers];
   }
 
   get question() {
@@ -18,8 +20,12 @@ class Quiz {
   shuffleAnswers() {
     return _.shuffle([
       this._correctAnswer,
-      ...this._incorrectAnswer
+      ...this._incorrectAnswers
     ]);
+  }
+
+  judgeCorrectAnswer(answer) {
+    return answer === this._correctAnswer;
   }
 }
 
