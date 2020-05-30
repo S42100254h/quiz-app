@@ -29,15 +29,27 @@ describe('インスタンスメソッド', () => {
       expect( quiz._incorrectAnswers ).toStrictEqual(quizData._incorrectAnswers)
     });
   });
+
+  describe('getter', () => {
+    it('questionとcorrectAnswerのgetterが使える', () => {
+      const quizData = createMockQuiz();
+      const quiz = new Quiz(quizData);
+
+      expect( quiz.question ).toStrictEqual(quizData.question);
+      expect( quiz.correctAnswer ).toStrictEqual(quizData.correctAnswer);
+      expect( quiz.incorrectAnswers ).toStrictEqual(undefined);
+    });
+  });
 });
 
-// describe('Shuffleメソッド', () => {
-//   it('シャッフルされる', () => {
-//     const quizData =createModkQuiz();
-//     const quiz = new Quiz(quizData);
+describe('Shuffleメソッド', () => {
+  it('シャッフルされる', () => {
+    const quizData = createMockQuiz();
+    const quiz = new Quiz(quizData);
 
-//     const shuffledAnswers1 = quiz.shuffleAnswers();
-//     const shuffledAnswers2 = quiz.shuffleAnswers();
-//     expect(shuffledAnswers1).not.toStrictEqual(shuffledAnswers2);
-//   });
-// });
+    const shuffledAnswers1 = quiz.shuffleAnswers();
+    const shuffledAnswers2 = quiz.shuffleAnswers();
+    expect(shuffledAnswers1).not.toStrictEqual(shuffledAnswers2);
+  });
+});
+
