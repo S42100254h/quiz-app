@@ -29,6 +29,17 @@ describe('インスタンスメソッド', () => {
       expect( quiz._incorrectAnswers ).toStrictEqual(quizData._incorrectAnswers)
     });
   });
+
+  describe('getter', () => {
+    it('questionとcorrectAnswerのgetterが使える', () => {
+      const quizData = createMockQuiz();
+      const quiz = new Quiz(quizData);
+
+      expect( quiz.question ).toStrictEqual(quizData.question);
+      expect( quiz.correctAnswer ).toStrictEqual(quizData.correctAnswer);
+      expect( quiz.incorrectAnswers ).toStrictEqual(undefined);
+    });
+  });
 });
 
 // describe('Shuffleメソッド', () => {
