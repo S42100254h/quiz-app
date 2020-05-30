@@ -27,6 +27,21 @@ class Quiz {
   judgeCorrectAnswer(answer) {
     return answer === this._correctAnswer;
   }
+
+  static async fetchAndCreateQuizzes() {
+    const quizDataList = await QuizFetcher.fetch();
+
+    return quizDataList.results.map(result => {
+      return {
+        question: he.decode(result.question),
+        correctAnswer: he.decode(result.correct_answer),
+        incorrectAnswers: result.incerrect_answers.map(str => he.decode(str))
+      };
+    })
+    .map(quizData => {
+      return new Quiz(quizData);
+    })
+  }
 }
 
 export default Quiz;
