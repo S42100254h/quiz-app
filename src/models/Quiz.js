@@ -35,7 +35,7 @@ class Quiz {
       return {
         question: he.decode(result.question),
         correctAnswer: he.decode(result.correct_answer),
-        incorrectAnswers: result.incerrect_answers.map(str => he.decode(str))
+        incorrectAnswers: result.incorrect_answers.map(str => he.decode(str))
       };
     })
     .map(quizData => {
