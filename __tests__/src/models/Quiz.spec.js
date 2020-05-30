@@ -42,13 +42,14 @@ describe('インスタンスメソッド', () => {
   });
 });
 
-// describe('Shuffleメソッド', () => {
-//   it('シャッフルされる', () => {
-//     const quizData =createModkQuiz();
-//     const quiz = new Quiz(quizData);
+describe('Shuffleメソッド', () => {
+  it('シャッフルされる', () => {
+    const quizData = createMockQuiz();
+    const quiz = new Quiz(quizData);
 
-//     const shuffledAnswers1 = quiz.shuffleAnswers();
-//     const shuffledAnswers2 = quiz.shuffleAnswers();
-//     expect(shuffledAnswers1).not.toStrictEqual(shuffledAnswers2);
-//   });
-// });
+    const shuffledAnswers1 = quiz.shuffleAnswers();
+    const shuffledAnswers2 = quiz.shuffleAnswers();
+    expect(shuffledAnswers1).not.toStrictEqual(shuffledAnswers2);
+  });
+});
+
